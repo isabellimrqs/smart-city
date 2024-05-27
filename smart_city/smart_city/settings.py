@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
     'django_filters',
+    'corsheaders'
 ]
 
 REST_FRAMEWORK = {
@@ -65,7 +66,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.comon.ComonMiddleware'
+    'django.middleware.common.CommonMiddleware'
+# 
 ]
 
 ROOT_URLCONF = 'smart_city.urls'
@@ -143,6 +145,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOW_ORIGINS = [
-    "http://localhost:5173"
+CORS_ALLOWED_ORIGINS = [
+   "http://localhost:5173",
 ]

@@ -1,0 +1,12 @@
+.container{
+    background-color: linear-gradient(135deg, #546B90, #e52e71, #ff0080);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container p {
+    font-size: 3.5rem;
+    color: #ffff;
+    margin: 0 16px;
+}

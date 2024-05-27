@@ -1,14 +1,15 @@
-import { useState } from 'react'
-import './App.css'
-import Card from './components/Card'
+import React from 'react';
+import Sensores from '../src/pages/Sensores'
+import './App.css';
+import { Inicial } from './pages/Inicial';
+import Header from './components/Header';
 
 function App() {
-
   return (
     <>
-      <Card/>
+      <Inicial/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
