@@ -9,10 +9,10 @@ export function Cabecalho() {
         <header className={estilos.container}>
             <img src={Logo} alt="Logo" />
             <div className={estilos.opcoes}>
-                <Link to="/inicial/listasensor">Lista Sensores</Link>
-                <Link to="/inicial/cadsensor">Cadastro</Link>
-                <Link to="/inicial/localizacao">Mapa</Link>
-                <Link to="/inicial/filtro">Filtros</Link>
+                <Link className={estilos.link} to="/listasensor">Lista Sensores</Link>
+                <Link className={estilos.link} to="/cadsensor">Cadastro</Link>
+                <Link className={estilos.link} to="/localizacao">Mapa</Link>
+                <Link className={estilos.link} to="/filtro">Filtros</Link>
             </div>
         </header>
     );

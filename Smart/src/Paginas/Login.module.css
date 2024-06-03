@@ -1,17 +1,15 @@
 .conteiner {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 50px);
+  height: 100vh;
   justify-content: center;
   align-items: center;
   background-color:var(--roxo-claro);
+  width: 100%;
   
 }
 
-body{
-  background-color:var(--roxo-claro);
 
-}
 
 .titulo {
   color: var(--roxo-escuro);

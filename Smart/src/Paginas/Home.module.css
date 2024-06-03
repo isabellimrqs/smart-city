@@ -1,3 +1,18 @@
-body {
-    background-color: whitesmoke;
+.container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 94vh;
+}
+
+.textos {
+    text-align: left; 
+    margin-right: 850px;
+
+}
+
+.textoInicial {
+    color: rgb(61, 59, 59);
+    font-size: 40px;
+    font-weight: 600;
 }

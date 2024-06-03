@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import estilos from './Filtro.module.css';
+import { Cabecalho } from '../Componentes/Cabecalho';
 
 export default function Filtro() {
     const [filters, setFilters] = useState({
@@ -45,6 +46,8 @@ export default function Filtro() {
     };
 
     return (
+        <div>
+            <Cabecalho/>
         <div className={estilos.container}>
             <form onSubmit={handleSubmit} className={estilos.formulario}>
 
@@ -74,6 +77,7 @@ export default function Filtro() {
                     ))}
                 </ul>
             </div>
+        </div>
         </div>
     );
 };

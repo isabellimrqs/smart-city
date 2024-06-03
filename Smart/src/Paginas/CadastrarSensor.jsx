@@ -6,6 +6,7 @@ import estilos from './CadastrarSensor.module.css';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Cabecalho } from '../Componentes/Cabecalho';
 
 const schemaSensor = z.object({
     tipo: z.string().nonempty('Tipo é obrigatório'),
@@ -41,6 +42,9 @@ export default function CadastrarSensor() {
     }
 
     return (
+
+        <div>
+            <Cabecalho/>
         <div className={estilos.conteiner}>
             <p className={estilos.titulo}>Cadastro de Sensor</p>
 
@@ -82,6 +86,7 @@ export default function CadastrarSensor() {
 
                 <button className={estilos.botao}>Cadastrar</button>
             </form>
+        </div>
         </div>
     );
 }
