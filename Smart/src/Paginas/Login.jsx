@@ -5,10 +5,11 @@ import estilos from './Login.module.css';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import Logo from '../assets/logo.svg'
 
 const schemaLogin = z.object({
     usuario: z.string().min(5, 'Mínimo de 5 caracteres').max(20, 'Máximo de 10 caracteres'),
-    senha: z.string().min(5, 'Informe 5 caracteres').max(8, 'Máximo de 5 caracteres'),
+    senha: z.string().min(6, 'Informe 6 caracteres').max(15, 'Máximo de 15 caracteres'),
 });
 
 export function Login() {
@@ -37,7 +38,7 @@ export function Login() {
 
     return (
         <div className={estilos.conteiner}>
-            <p className={estilos.titulo}>Login</p>
+            <img className={estilos.titulo} src={Logo}></img>
 
             <form className={estilos.formulario} onSubmit={handleSubmit(obterDadosFormulario)}>
                 <input

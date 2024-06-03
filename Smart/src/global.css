@@ -1,9 +1,9 @@
 
 
 :root{
-  --cinza-claro: #dfd9df;
+  --cinza-claro: #F9F7F7;
   --roxo-escuro:#1f0322;
-  --roxo-claro:#ab10bc;
+  --roxo-claro:#5B7A97;
 }
 
 *{
@@ -13,12 +13,12 @@
 
 }
 body{
-  background-color: var(--roxo-escuro);
+  background-color: var(--roxo-claro);
 
 }
 
 body, input{
-  font-family: "Dancing Script", cursive; 
+  font-family: "Poppins", sans-serif; 
   
 
 }
