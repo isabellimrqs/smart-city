@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import estilos from './Sensor.module.css';
 
-export function Sensor() {
+export default function Sensor() {
     const [sensores, setSensores] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);

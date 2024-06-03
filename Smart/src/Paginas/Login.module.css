@@ -1,68 +1,74 @@
 .conteiner {
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 50px);
-    justify-content: center;
-    align-items: center;
-    background-color: var(--cinza-escuro);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 50px);
+  justify-content: center;
+  align-items: center;
+  background-color:var(--roxo-claro);
+  
+}
+
+body{
+  background-color:var(--roxo-claro);
+
 }
 
 .titulo {
-    color: var(--roxo-escuro);
-    font-size: 2rem;
-    margin-bottom: 25px;
+  color: var(--roxo-escuro);
+  font-size: 2rem;
+  margin-bottom: 25px;
 }
 
 img {
-    width: 150px;
+  width: 150px;
 }
 
 .formulario {
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    gap: 10px;
-    border-radius: 10px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 10px;
+  border-radius: 10px;
+  align-items: center;
 }
 
 .campo {
-    background-color: var(--cinza-claro);
-    margin-bottom: 10px;
-    width: 464px;
-    height: 55px;
-    padding: 5px;
-    border: none;
-    outline: none;
-    border-radius: 10px;
+  background-color: var(--cinza-claro);
+  margin-bottom: 10px;
+  width: 464px;
+  height: 55px;
+  padding: 5px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
 }
 
 .botao {
-    background-color:#EAF4F4;
-    color: rgb(100, 99, 99);
-    font-weight: 550;
-    font-size: 15px;
-    border: none;
-    padding: 10px;
-    width: 220px;
-    height: 55px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.5s;
+  background-color:#EAF4F4;
+  color: rgb(100, 99, 99);
+  font-weight: 550;
+  font-size: 15px;
+  border: none;
+  padding: 10px;
+  width: 220px;
+  height: 55px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.5s;
 
 }
 
 .botao:hover{
-    background-color:#ffffff;
-    transition: background-color 0.5s;
+  background-color:#ffffff;
+  transition: background-color 0.5s;
 
 }
 
 .mensagem {
-    font-size: .9rem;
-    font-weight: 500;
-    margin-top: -6px;
-    margin-bottom: 1rem;  
-    margin-right: 300px;
-    color: darkred; 
+  font-size: .9rem;
+  font-weight: 500;
+  margin-top: -6px;
+  margin-bottom: 1rem;  
+  margin-right: 300px;
+  color: darkred; 
 }

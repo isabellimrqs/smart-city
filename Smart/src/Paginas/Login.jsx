@@ -30,7 +30,7 @@ export function Login() {
             localStorage.setItem('refresh_token', refresh);
 
             console.log('Login bem-sucedido!');
-            navigate('/inicial'); // Redireciona para a página de sensores
+            navigate('/home'); // Redireciona para a página de sensores
         } catch (error) {
             console.error('Erro de autenticação', error);
         }

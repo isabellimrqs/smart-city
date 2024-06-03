@@ -19,7 +19,7 @@ const schemaSensor = z.object({
     observacao: z.string().nullable(),
 });
 
-export function CadastrarSensor() {
+export default function CadastrarSensor() {
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: zodResolver(schemaSensor)

@@ -1,12 +1,33 @@
 .container{
-    background-color: linear-gradient(135deg, #546B90, #e52e71, #ff0080);
+    background: linear-gradient(135deg, #5B7A97, #6895A3, #75ACAE);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    height: 68px;
+    
 }
 
-.container p {
-    font-size: 3.5rem;
-    color: #ffff;
-    margin: 0 16px;
+img {
+    width: 58px;
+    margin-left: 30px;
+
 }
+
+.opcoes {
+    display: flex;
+    gap: 45px;
+    margin-right: 40px;
+}
+
+.textoOpcao {
+    font-size: 15px;
+    color: #F9F7F7;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.textoOpcao:hover{
+    text-decoration: underline;
+    color: #ffff;
+}
+

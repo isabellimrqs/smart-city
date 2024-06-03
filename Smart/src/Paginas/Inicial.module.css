@@ -14,9 +14,11 @@ header {
     grid-area: cabecalho; 
 }
 
-aside {
-    grid-area: lateral; 
+body {
+    background-color: whitesmoke;
 }
+
+
 
 main {
     grid-area: conteudo;
