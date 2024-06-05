@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Cabecalho } from '../Componentes/Cabecalho'; 
 import ListaSensor from '../Paginas/Sensor';
 import CadSensor from '../Paginas/CadastrarSensor';
-import Localizacao from '../Componentes/Mapa';
+import Localizacao from '../Paginas/Localizacao';
 import Filtro from '../Paginas/Filtro';
 import { Home } from '../Paginas/Home';
 import {Login} from '../Paginas/Login'

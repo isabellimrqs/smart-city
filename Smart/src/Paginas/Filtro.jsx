@@ -54,7 +54,7 @@ export default function Filtro() {
                     <label>Responsável</label>
                     <input type="text" name="responsavel" value={filters.responsavel} onChange={handleChange} />
 
-                    <label>Status Operacional *</label>
+                    <label>Status Operacional</label>
                     <input type="checkbox" name="status_operacional" checked={filters.status_operacional} onChange={handleChange} />
 
                     <label>Tipo</label>
@@ -66,11 +66,11 @@ export default function Filtro() {
                 <button className={estilos.botao} type="submit">Filtrar</button>
             </form>
 
-            {loading && <div>Carregando...</div>}
             {error && <div>Erro ao buscar sensores: {error.message}</div>}
 
             <div className={estilos.conteiner}>
                 <h1>Sensores Filtrados</h1>
+            {loading && <div>Carregando...</div>}
                 <ul>
                     {sensors.map(sensor => (
                         <li key={sensor.id}>{sensor.tipo} - {sensor.localizacao} - {sensor.responsavel}</li>

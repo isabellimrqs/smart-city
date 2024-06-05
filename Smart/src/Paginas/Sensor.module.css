@@ -18,7 +18,7 @@ table {
     font-size: 16px;
     border: 1px solid var(--roxo-claro);
     border-collapse: collapse; /* Colapsa as bordas da tabela */
-    width: 100%;
+    width: 95%;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -44,3 +44,19 @@ th {
 tbody tr:nth-child(even) {
     background-color: var(--cinza-claro); /* Alterna a cor de fundo para linhas pares */
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

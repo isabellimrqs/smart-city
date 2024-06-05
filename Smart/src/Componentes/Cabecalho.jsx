@@ -7,7 +7,9 @@ import Logo from '../assets/logo.svg';
 export function Cabecalho() {
     return (
         <header className={estilos.container}>
+            <a href="/home">
             <img src={Logo} alt="Logo" />
+            </a>
             <div className={estilos.opcoes}>
                 <Link className={estilos.link} to="/listasensor">Lista Sensores</Link>
                 <Link className={estilos.link} to="/cadsensor">Cadastro</Link>

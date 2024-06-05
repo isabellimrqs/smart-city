@@ -38,6 +38,8 @@ export function Login() {
 
     return (
         <div className={estilos.conteiner}>
+
+            <div className={estilos.containerForm}>
             <img className={estilos.titulo} src={Logo}></img>
 
             <form className={estilos.formulario} onSubmit={handleSubmit(obterDadosFormulario)}>
@@ -62,6 +64,7 @@ export function Login() {
 
                 <button className={estilos.botao}>Entrar</button>
             </form>
+            </div>
         </div>
     );
 }
