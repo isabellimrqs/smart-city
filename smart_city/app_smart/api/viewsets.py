@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User
 from rest_framework import generics, permissions
 from app_smart.api import serializers
-from ..models import Sensor
-from app_smart.api.filters import SensorFilter
+from ..models import Sensor, TemperaturaData, UmidadeData, ContadorData, LuminosidadeData
+from app_smart.api.filters import SensorFilter, TemperaturaDataFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.views import APIView
 from django.db.models import Q
@@ -48,3 +48,24 @@ class SensorFilterView(APIView):
         return Response(serializer.data) 
 
 
+class TemperaturaDataViewSet(viewsets.ModelViewSet):
+    queryset = TemperaturaData.objects.all()
+    serializer_class = serializers.TemperaturaDataSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = TemperaturaDataFilter
+
+class UmidadeDataViewSet(viewsets.ModelViewSet):
+    queryset = UmidadeData.objects.all()
+    serializer_class = serializers.UmidadeDataSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class LuminosidadeDataViewSet(viewsets.ModelViewSet):
+    queryset = LuminosidadeData.objects.all()
+    serializer_class = serializers.LuminosidadeDataSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class ContadorDataViewSet(viewsets.ModelViewSet):
+    queryset = ContadorData.objects.all()
+    serializer_class = serializers.ContadorDataSerializer
+    permission_classes = [permissions.IsAuthenticated]
