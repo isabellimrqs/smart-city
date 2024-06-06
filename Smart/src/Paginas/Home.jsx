@@ -10,8 +10,8 @@ export function Home() {
       <Cabecalho />
       <div className={styles.container}>
         <div className={styles.textos}>
-          <h1 className={styles.textoInicial}>Olá! </h1>
-          <h1 className={styles.textoInicial}>O que deseja fazer hoje?</h1>
+          <h1 className={styles.textoInicial}>Bem vindo à SmartCity! </h1>
+          <h1 className={styles.textoInicial}>Sua plataforma inteligente </h1>
         </div>
       </div>
 

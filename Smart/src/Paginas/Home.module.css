@@ -6,9 +6,8 @@
 }
 
 .textos {
-    text-align: left; 
-    margin-right: 850px;
-
+    justify-content: center; 
+    align-items: center; 
 }
 
 .textoInicial {

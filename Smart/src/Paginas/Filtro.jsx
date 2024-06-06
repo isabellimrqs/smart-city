@@ -74,7 +74,7 @@ export default function Filtro() {
                 <ul>
                     {sensors.map(sensor => (
                         <li key={sensor.id}>{sensor.tipo} - {sensor.localizacao} - {sensor.responsavel}</li>
-                    ))}
+                    )) }
                 </ul>
             </div>
         </div>

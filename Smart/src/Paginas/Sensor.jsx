@@ -42,7 +42,14 @@ export default function Sensor() {
 
         <div className={estilos.container}>
             <h1>Lista de Sensores</h1>
-            <table className={estilos.table}>
+            <div className={estilos.sensorContainer}>
+                    {sensores.map(sensor => (
+                        <div key={sensor.id}>
+                            <p>ID: {sensor.id}</p>
+                        </div>
+                    ))}
+                </div>
+            {/* <table className={estilos.table}>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -51,7 +58,7 @@ export default function Sensor() {
                         <th>Responsável</th>
                         <th>Longitude</th>
                         <th>Latitude</th>
-                        <th>Alterar Dados</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -63,11 +70,11 @@ export default function Sensor() {
                             <td>{sensor.responsavel}</td>
                             <td>{sensor.longitude}</td>
                             <td>{sensor.latitude}</td>
-                            {/* Aqui você pode adicionar o botão para alterar dados */}
+                           
                         </tr>
                     ))}
                 </tbody>
-            </table>
+            </table> */}
         </div>
         </div>
     );
