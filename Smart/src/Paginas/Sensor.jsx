@@ -42,39 +42,20 @@ export default function Sensor() {
 
         <div className={estilos.container}>
             <h1>Lista de Sensores</h1>
-            <div className={estilos.sensorContainer}>
+            
+            <div className={estilos.sensoresContainer} >
                     {sensores.map(sensor => (
-                        <div key={sensor.id}>
+                        <div key={sensor.id} className={estilos.sensorContainer}>
                             <p>ID: {sensor.id}</p>
+                            <p>Tipo: {sensor.tipo}</p>
+                            <p>Localização: {sensor.localizacao}</p>
+                            <p>Responsável: {sensor.responsavel}</p>
+                            <p>Longitude: {sensor.longitude}</p>
+                            <p>Latitude: {sensor.latitude}</p>
                         </div>
                     ))}
                 </div>
-            {/* <table className={estilos.table}>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Tipo</th>
-                        <th>Localização</th>
-                        <th>Responsável</th>
-                        <th>Longitude</th>
-                        <th>Latitude</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    {sensores.map(sensor => (
-                        <tr key={sensor.id}>
-                            <td>{sensor.id}</td>
-                            <td>{sensor.tipo}</td>
-                            <td>{sensor.localizacao}</td>
-                            <td>{sensor.responsavel}</td>
-                            <td>{sensor.longitude}</td>
-                            <td>{sensor.latitude}</td>
-                           
-                        </tr>
-                    ))}
-                </tbody>
-            </table> */}
+           
         </div>
         </div>
     );
