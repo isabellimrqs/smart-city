@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { useNavigate,Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import estilos from './Login.module.css';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -8,11 +8,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import Logo from '../assets/logo.svg'
 
 const schemaLogin = z.object({
-    usuario: z.string().min(5, 'Mínimo de 5 caracteres').max(20, 'Máximo de 10 caracteres'),
-    senha: z.string().min(6, 'Informe 6 caracteres').max(15, 'Máximo de 15 caracteres'),
+    usuario: z.string().min(1, 'Campo obrigatório').max(20, 'Máximo de 10 caracteres'),
+    email: z.string().min(1, 'Campo obrigatório').email("Email inválido"),
+    senha: z.string().min(1, 'Campo obrigatório').max(15, 'Máximo de 15 caracteres'),
 });
 
-export function Login() {
+export function Signup() {
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: zodResolver(schemaLogin)
@@ -22,6 +23,23 @@ export function Login() {
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/token/', {
                 username: data.usuario,
+                email: data.email,
+                password: data.senha
+            });
+
+            const { access, refresh } = response.data;
+            localStorage.setItem('access_token', access);
+            localStorage.setItem('refresh_token', refresh);
+
+        } catch (error) {
+            console.error('Erro de autenticação', error);
+        }
+    }
+    async function criarUsuario(data) {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/create_user/', {
+                username: data.usuario,
+                email: data.email,
                 password: data.senha
             });
 
@@ -30,7 +48,7 @@ export function Login() {
             localStorage.setItem('refresh_token', refresh);
 
             console.log('Login bem-sucedido!');
-            navigate('/home'); // Redireciona para a página de sensores
+            navigate('/'); // Redireciona para a página de login
         } catch (error) {
             console.error('Erro de autenticação', error);
         }
@@ -53,6 +71,15 @@ export function Login() {
                 )}
 
                 <input
+                    {...register('email')}
+                    type="email"
+                    className={estilos.campo}
+                    placeholder="Email"
+                />
+                {errors.senha && (
+                    <p className={estilos.mensagem}>{errors.senha.message}</p>
+                )}
+                <input
                     {...register('senha')}
                     type="password"
                     className={estilos.campo}
@@ -61,9 +88,9 @@ export function Login() {
                 {errors.senha && (
                     <p className={estilos.mensagem}>{errors.senha.message}</p>
                 )}
-                <p className={estilos.cadastroText}>Não possui conta?  <Link className={estilos.a} to='/signup'>Cadastre-se</Link></p>
+                <p className={estilos.cadastroText}>Já possui conta? <Link className={estilos.a} to='/'>Login</Link></p>
 
-                <button className={estilos.botao}>Entrar</button>
+                <button className={estilos.botao} onSubmit={handleSubmit(criarUsuario)}>Entrar</button>
             </form>
             </div>
         </div>

@@ -87,6 +87,23 @@
 
 }
 
+.cadastroText {
+  font-size: 12px;
+  margin-left: 250px;
+  color: #f1eeee;
+}
+
+.a {
+  color: #f1eeee;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cadastroText .a:hover{
+  text-decoration: underline;
+  
+}
+
 .mensagem {
   font-size: .9rem;
   font-weight: 500;

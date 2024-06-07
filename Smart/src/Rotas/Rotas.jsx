@@ -6,6 +6,7 @@ import Localizacao from '../Paginas/Localizacao';
 import Filtro from '../Paginas/Filtro';
 import { Home } from '../Paginas/Home';
 import {Login} from '../Paginas/Login'
+import { Signup } from '../Paginas/Signup';
 
 export function Rotas() {
   return (
@@ -13,6 +14,7 @@ export function Rotas() {
       <div>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />}/>
           <Route path="/home" element={<Home />}/>
           <Route path="/listasensor" element={<ListaSensor />} />
           <Route path="/cadsensor" element={<CadSensor />} />
