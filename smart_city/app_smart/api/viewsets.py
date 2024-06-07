@@ -13,7 +13,7 @@ from rest_framework import viewsets
 class CreateUserAPIViewSet(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = serializers.UserSerializer
-    permission_classes = [permissions.IsAdminUser]
+    # permission_classes = [permissions.IsAdminUser] # comentada para funcionamento das funções de cadastro no mobile e web
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
