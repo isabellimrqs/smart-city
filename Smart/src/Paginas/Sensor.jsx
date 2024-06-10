@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import estilos from './Sensor.module.css';
 import { Cabecalho } from '../Componentes/Cabecalho';
+import PaginaErro from './PaginaErro';
 
 export default function Sensor() {
     const [sensores, setSensores] = useState([]);
@@ -33,7 +34,7 @@ export default function Sensor() {
     }
 
     if (error) {
-        return <div>Erro ao carregar os dados: {error.message}</div>;
+        return <PaginaErro mensagem={`Erro ao carregar os dados: ${error.message}`} />;
     }
 
     return (
@@ -46,8 +47,8 @@ export default function Sensor() {
             <div className={estilos.sensoresContainer} >
                     {sensores.map(sensor => (
                         <div key={sensor.id} className={estilos.sensorContainer}>
+                            <h4 className={estilos.tituloSensor}>{sensor.tipo}</h4>
                             <p>ID: {sensor.id}</p>
-                            <p>Tipo: {sensor.tipo}</p>
                             <p>Localização: {sensor.localizacao}</p>
                             <p>Responsável: {sensor.responsavel}</p>
                             <p>Longitude: {sensor.longitude}</p>

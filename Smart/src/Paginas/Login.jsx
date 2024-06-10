@@ -28,6 +28,7 @@ export function Login() {
             const { access, refresh } = response.data;
             localStorage.setItem('access_token', access);
             localStorage.setItem('refresh_token', refresh);
+            localStorage.setItem('username', data.usuario)
 
             console.log('Login bem-sucedido!');
             navigate('/home'); // Redireciona para a página de sensores

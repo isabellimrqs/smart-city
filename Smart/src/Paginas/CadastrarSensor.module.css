@@ -1,24 +1,33 @@
-.conteiner {
-    display: flex;
-    height: 450px;
-    justify-content: center;
+.container {
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+.containerTitulo{
+    margin-top: 36px;
 }
 
 .titulo {
     color:var(--roxo-claro);
-    font-size:24px;
+
 }
 
 .formulario {
-    display: flex;
-    flex-direction: column;
+    margin-top: 86px;
+    align-items: center;
+    text-align: center;
     background-color: var(--cinza-claro);
     padding: 30px;
     border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 200px); 
     font-size: 16px;
-    align-items: center;
-    margin-top: 450px;
+    width:700px;
+    gap: 20px;
 }
 
 textarea{
@@ -30,12 +39,34 @@ textarea{
     padding: 5px;
     border-radius: 6px;
     font-size: 16px;
+    border: 1px solid;
+    outline: none;
+    width: 180px;
 }
 
+.campoCheckbox{
+    display: flex;
+}
+
+
 .botao {
-    background-color: var(--roxo-escuro);
+    background-color:#5B7A97;
     color: var(--cinza-claro);
     padding: 10px;
     border-radius: 8px;
     font-size: 16px;
+    cursor: pointer;
+    width: 105px;
+    margin-left: 270px;
+    border: none;
 }
+
+.botao:hover{
+    background-color:#8da1b3;
+
+}
+
+.mensagem{
+    color: darkred;
+}
+

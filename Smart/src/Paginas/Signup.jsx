@@ -19,22 +19,22 @@ export function Signup() {
         resolver: zodResolver(schemaLogin)
     });
 
-    async function obterDadosFormulario(data) {
-        try {
-            const response = await axios.post('http://127.0.0.1:8000/api/token/', {
-                username: data.usuario,
-                email: data.email,
-                password: data.senha
-            });
+    // async function obterDadosFormulario(data) {
+    //     try {
+    //         const response = await axios.post('http://127.0.0.1:8000/api/token/', {
+    //             username: data.usuario,
+    //             email: data.email,
+    //             password: data.senha
+    //         });
 
-            const { access, refresh } = response.data;
-            localStorage.setItem('access_token', access);
-            localStorage.setItem('refresh_token', refresh);
+    //         const { access, refresh } = response.data;
+    //         localStorage.setItem('access_token', access);
+    //         localStorage.setItem('refresh_token', refresh);
 
-        } catch (error) {
-            console.error('Erro de autenticação', error);
-        }
-    }
+    //     } catch (error) {
+    //         console.error('Erro de autenticação', error);
+    //     }
+    // }
     async function criarUsuario(data) {
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/create_user/', {
@@ -60,7 +60,7 @@ export function Signup() {
             <div className={estilos.containerForm}>
             <img className={estilos.titulo} src={Logo}></img>
 
-            <form className={estilos.formulario} onSubmit={handleSubmit(obterDadosFormulario)}>
+            <form className={estilos.formulario} onSubmit={handleSubmit(criarUsuario)}>
                 <input
                     {...register('usuario')}
                     className={estilos.campo}

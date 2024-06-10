@@ -49,27 +49,28 @@ export default function Filtro() {
         <div>
             <Cabecalho/>
         <div className={estilos.container}>
+
+            <h1>Filtro de Sensores</h1>
+
             <form onSubmit={handleSubmit} className={estilos.formulario}>
 
-                    <label>Responsável</label>
-                    <input type="text" name="responsavel" value={filters.responsavel} onChange={handleChange} />
+                   
+                    <input type="text" name="responsavel" value={filters.responsavel} onChange={handleChange} placeholder='Responsável' />
 
-                    <label>Status Operacional</label>
+
+                    <input type="text" name="tipo" value={filters.tipo} onChange={handleChange} placeholder='Tipo' />
+
+                    <input type="text" name="localizacao" value={filters.localizacao} onChange={handleChange} placeholder='Localização' />
+
+                    <label>Status Operacional:</label>
                     <input type="checkbox" name="status_operacional" checked={filters.status_operacional} onChange={handleChange} />
-
-                    <label>Tipo</label>
-                    <input type="text" name="tipo" value={filters.tipo} onChange={handleChange} />
-
-                    <label>Localização</label>
-                    <input type="text" name="localizacao" value={filters.localizacao} onChange={handleChange} />
-
                 <button className={estilos.botao} type="submit">Filtrar</button>
             </form>
 
             {error && <div>Erro ao buscar sensores: {error.message}</div>}
 
             <div className={estilos.conteiner}>
-                <h1>Sensores Filtrados</h1>
+                <h2>Sensores filtrados aparecerão abaixo: </h2>
             {loading && <div>Carregando...</div>}
                 <ul>
                     {sensors.map(sensor => (

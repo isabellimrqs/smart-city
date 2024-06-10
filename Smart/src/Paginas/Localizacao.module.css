@@ -9,6 +9,7 @@ h1 {
     text-align: center;
 }
 
+
 .mapa {
     margin-top: 20px;
     margin-right: 150px;
@@ -36,4 +37,7 @@ h1 {
 
 .containerHint p {
     font-weight: 500;
+}
+.containerHint h2{
+    color: #fff;
 }

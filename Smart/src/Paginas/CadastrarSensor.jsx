@@ -9,7 +9,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Cabecalho } from '../Componentes/Cabecalho';
 
 const schemaSensor = z.object({
-    tipo: z.string().nonempty('Tipo é obrigatório'),
+    tipo: z.string().min(1,'Tipo é obrigatório'),
     mac_address: z.string().max(20, 'Máximo de 20 caracteres').nullable(),
     latitude: z.string().refine(val => !isNaN(parseFloat(val)), 'Latitude inválida'),
     longitude: z.string().refine(val => !isNaN(parseFloat(val)), 'Longitude inválida'),
@@ -35,7 +35,7 @@ export default function CadastrarSensor() {
             });
 
             alert('Sensor cadastrado com sucesso!');
-            navigate('/inicial'); // Redireciona para a página inicial após o cadastro
+            navigate('/listasensor'); // Redireciona para a página inicial após o cadastro
         } catch (error) {
             console.error('Erro no cadastro de sensor', error);
         }
@@ -45,8 +45,10 @@ export default function CadastrarSensor() {
 
         <div>
             <Cabecalho/>
-        <div className={estilos.conteiner}>
-            <p className={estilos.titulo}>Cadastro de Sensor</p>
+        <div className={estilos.container}>
+            <div className={estilos.containerTitulo}>
+            <h1 className={estilos.titulo}>Cadastro de Sensor</h1>
+            </div>
 
             <form className={estilos.formulario} onSubmit={handleSubmit(obterDadosFormulario)}>
                 <select {...register('tipo')} className={estilos.campo}>
@@ -77,14 +79,14 @@ export default function CadastrarSensor() {
                 {errors.unidade_medida && <p className={estilos.mensagem}>{errors.unidade_medida.message}</p>}
 
                 <label className={estilos.campoCheckbox}>
-                    Status Operacional:
+                    Status Operacional:   
                     <input {...register('status_operacional')} type="checkbox" />
                 </label>
 
                 <textarea {...register('observacao')} className={estilos.campo} placeholder="Observação"></textarea>
                 {errors.observacao && <p className={estilos.mensagem}>{errors.observacao.message}</p>}
 
-                <button className={estilos.botao}>Cadastrar</button>
+                <button className={estilos.botao} onSubmit={handleSubmit(obterDadosFormulario)}>Cadastrar</button>
             </form>
         </div>
         </div>

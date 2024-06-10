@@ -3,6 +3,7 @@ import axios from "axios";
 import Mapa from "../Componentes/Mapa";
 import { Cabecalho } from "../Componentes/Cabecalho";
 import styles from "./Localizacao.module.css";
+import PaginaErro from "./PaginaErro";
 
 export default function Localizacao() {
   const [pontos, setPontos] = useState([]);
@@ -45,9 +46,8 @@ export default function Localizacao() {
   }
 
   if (error) {
-    return <div>Erro ao carregar os dados: {error.message}</div>;
-  }
-
+    return <PaginaErro mensagem={`Erro ao carregar os dados: ${error.message}`} />;
+}
   return (
     <div>
       <Cabecalho />
