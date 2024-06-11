@@ -4,6 +4,13 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background: linear-gradient(210deg, #89c9cb, #6895a3, #475e75);
+    background-size: 100% 200%;
+    background-position: center;
+
+    -webkit-animation: animandoBackground 12s ease infinite;
+    animation:animandoBackground 12s ease infinite;
+  width: 100%;
 }
 
 .containerErro h2{
