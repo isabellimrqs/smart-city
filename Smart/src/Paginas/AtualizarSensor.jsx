@@ -1,45 +1,67 @@
-// src/Paginas/CadastrarSensor.jsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import estilos from './CadastrarSensor.module.css';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Cabecalho } from '../Componentes/Cabecalho';
 
+
 const schemaSensor = z.object({
-    tipo: z.string().min(1,'Tipo é obrigatório'),
-    mac_address: z.string().min(1, 'Mac Address é obrigatório').max(20, 'Máximo de 20 caracteres'),
-    latitude: z.string().refine(val => !isNaN(parseFloat(val)), 'Latitude inválida'), // com ponto e não virgula
-    longitude: z.string().refine(val => !isNaN(parseFloat(val)), 'Longitude inválida'),  // com ponto e não virgula
-    localizacao: z.string().min(1, 'Localização é obrigatório').max(100, 'Máximo de 100 caracteres'),
-    responsavel: z.string().min(1, 'Responsável é obrigatório').max(100, 'Máximo de 100 caracteres'),
-    unidade_medida: z.string().min(1, 'Unidade de medida é obrigatório').max(20, 'Máximo de 20 caracteres'),
+    mac_address: z.string().max(20, 'Máximo de 20 caracteres').nullable(),
+    latitude: z.number().refine(val => !isNaN(parseFloat(val)), 'Latitude inválida'),
+    longitude: z.number().refine(val => !isNaN(parseFloat(val)), 'Longitude inválida'),
+    localizacao: z.string().max(100, 'Máximo de 100 caracteres'),
+    responsavel: z.string().max(100, 'Máximo de 100 caracteres'),
+    unidade_medida: z.string().max(20, 'Máximo de 20 caracteres').nullable(),
     status_operacional: z.boolean(),
     observacao: z.string().nullable(),
-}); // precisa preencher TODOS os campos...
+    tipo: z.string().optional() 
+});
 
-export default function CadastrarSensor() {
+export default function AtualizarSensor() {
     const navigate = useNavigate();
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { id } = useParams();
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm({
         resolver: zodResolver(schemaSensor)
     });
-
-    async function obterDadosFormulario(data) {
+    const obterDadosSensor = async () => {
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/sensores/', data, {
+            const token = localStorage.getItem('access_token');
+            const response = await axios.get(`http://127.0.0.1:8000/api/sensores/${id}/`, {
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+                    'Authorization': `Bearer ${token}`
                 }
             });
-
-            alert('Sensor cadastrado com sucesso!');
-            navigate('/listasensor'); // Redireciona para a página inicial após o cadastro
-        } catch (error) {
-            console.error('Erro no cadastro de sensor', error);
+            const sensorData = response.data;
+            Object.keys(sensorData).forEach(key => {
+                setValue(key, sensorData[key]);
+            });
+        } catch (err) {
+            console.error('Erro ao obter o sensor', err);
         }
-    }
+    };
+    useEffect(() => {
+        obterDadosSensor();
+    }, [id]);
+
+    const onSubmit = async (data) => {
+
+        console.log("Dados enviados para o PUT:", data);
+        try {
+            const token = localStorage.getItem('access_token');
+            await axios.put(`http://127.0.0.1:8000/api/sensores/${id}/`, data, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            alert('Sensor alterado com sucesso!');
+            navigate('/listasensor');
+        } catch (error) {
+            console.error('Erro ao alterar o sensor', error);
+        }
+    };
 
     return (
 
@@ -47,10 +69,10 @@ export default function CadastrarSensor() {
             <Cabecalho/>
         <div className={estilos.container}>
             <div className={estilos.containerTitulo}>
-            <h1 className={estilos.titulo}>Cadastro de Sensor</h1>
+            <h1 className={estilos.titulo}>Atualizar Sensor</h1>
             </div>
 
-            <form className={estilos.formulario} onSubmit={handleSubmit(obterDadosFormulario)}>
+            <form className={estilos.formulario} onSubmit={handleSubmit(onSubmit)}>
                 <select {...register('tipo')} className={estilos.campo}>
                     <option value="">Selecione o tipo de sensor</option>
                     <option value="Temperatura">Temperatura</option>
@@ -86,7 +108,7 @@ export default function CadastrarSensor() {
                 <textarea {...register('observacao')} className={estilos.campo} placeholder="Observação"></textarea>
                 {errors.observacao && <p className={estilos.mensagem}>{errors.observacao.message}</p>}
 
-                <button className={estilos.botao} onSubmit={handleSubmit(obterDadosFormulario)}>Cadastrar</button>
+                <button className={estilos.botao} >Atualizar</button>
             </form>
         </div>
         </div>

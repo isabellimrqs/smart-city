@@ -19,22 +19,6 @@ export function Signup() {
         resolver: zodResolver(schemaLogin)
     });
 
-    // async function obterDadosFormulario(data) {
-    //     try {
-    //         const response = await axios.post('http://127.0.0.1:8000/api/token/', {
-    //             username: data.usuario,
-    //             email: data.email,
-    //             password: data.senha
-    //         });
-
-    //         const { access, refresh } = response.data;
-    //         localStorage.setItem('access_token', access);
-    //         localStorage.setItem('refresh_token', refresh);
-
-    //     } catch (error) {
-    //         console.error('Erro de autenticação', error);
-    //     }
-    // }
     async function criarUsuario(data) {
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/create_user/', {

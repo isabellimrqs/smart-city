@@ -7,6 +7,7 @@ import Filtro from '../Paginas/Filtro';
 import { Home } from '../Paginas/Home';
 import {Login} from '../Paginas/Login'
 import { Signup } from '../Paginas/Signup';
+import  AtualizarSensor  from '../Paginas/AtualizarSensor'
 
 export function Rotas() {
   return (
@@ -20,6 +21,7 @@ export function Rotas() {
           <Route path="/cadsensor" element={<CadSensor />} />
           <Route path="/localizacao" element={<Localizacao />} />
           <Route path="/filtro" element={<Filtro />} />
+          <Route path="/atualizarsensor/:id" element={<AtualizarSensor />} />
         </Routes>
       </div>
     </Router>

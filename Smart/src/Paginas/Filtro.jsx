@@ -72,11 +72,17 @@ export default function Filtro() {
             <div className={estilos.conteiner}>
                 <h2>Sensores filtrados aparecerão abaixo: </h2>
             {loading && <div>Carregando...</div>}
-                <ul>
+
+                    <div className={estilos.allSensorsFiltered}>
                     {sensors.map(sensor => (
-                        <li key={sensor.id}>{sensor.tipo} - {sensor.localizacao} - {sensor.responsavel}</li>
+                       <div key={sensor.id} className={estilos.oneSensorFiltered}>
+                       <h4 className={estilos.tituloSensor}>{sensor.tipo}</h4>
+                       <p>Localização: {sensor.localizacao}</p>
+                       <p>Responsável: {sensor.responsavel}</p>
+                   </div>
                     )) }
-                </ul>
+                    </div>
+                
             </div>
         </div>
         </div>

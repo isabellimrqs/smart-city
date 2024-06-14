@@ -28,15 +28,15 @@ class TemperaturaDataSerializer(serializers.ModelSerializer):
 
 class UmidadeDataSerializer(serializers.ModelSerializer):
     class Meta:
-        model = TemperaturaData
-        fiels = '__all__'
+        model = UmidadeData
+        fields = '__all__'
 
 class ContadorDataSerializer(serializers.ModelSerializer):
     class Meta:
-        model = TemperaturaData
-        fiels = '__all__'
+        model = ContadorData
+        fields = '__all__'
 
 class LuminosidadeDataSerializer(serializers.ModelSerializer):
     class Meta:
-        model = TemperaturaData
-        fiels = '__all__'
+        model = LuminosidadeData
+        fields = '__all__'
