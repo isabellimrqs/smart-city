@@ -48,7 +48,6 @@ h1 {
   justify-content: center;
   margin-top: 12px;
   gap: 24px;
-  
 }
 
 .botoes button {
@@ -114,12 +113,14 @@ h1 {
     color: white;
     margin-top: 15px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .buttonSim {
   background-color: rgb(233, 71, 71);
   transition: .2s;
   transform: 500ms linear;
+  cursor: pointer;
 }
 .buttonSim:hover {
   background-color: rgb(243, 86, 86);
@@ -132,6 +133,7 @@ h1 {
   background-color:#6895A3;
   transition: .2s;
   transform: 500ms linear;
+  cursor: pointer;
 
 }
 .buttonCancela:hover{
